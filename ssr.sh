@@ -605,9 +605,6 @@ Debian_apt(){
 Download_SSR(){
 	cd "/usr/local/"
 	wget -N --no-check-certificate "https://raw.githubusercontent.com/qbwza/qq/master/123/22"
-	#git config --global http.sslVerify false
-	#env GIT_SSL_NO_VERIFY=true git clone -b manyuser https://github.com/ToyoDAdoubi/shadowsocksr.git
-	#[[ ! -e ${ssr_folder} ]] && echo -e "${Error} ShadowsocksR服务端 下载失败 !" && exit 1
 	tar zxvf "888.tar.gz"
 	[[ ! -e "/usr/local/shadowsocksr-manyuser/" ]] && echo -e "${Error} ShadowsocksR服务端 解压失败 !" && rm -rf manyuser.zip && exit 1
 	mv "/usr/local/shadowsocksr-manyuser/" "/usr/local/shadowsocksr/"
