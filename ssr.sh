@@ -13,7 +13,7 @@ export PATH
 sh_ver="2.0.37"
 filepath=$(cd "$(dirname "$0")"; pwd)
 file=$(echo -e "${filepath}"|awk -F "$0" '{print $1}')
-ssr_folder="/usr/local/shadowsocksr-manyuser"
+ssr_folder="/usr/local/shadowsocksr"
 ssr_ss_file="${ssr_folder}/shadowsocks"
 config_file="${ssr_folder}/config.json"
 config_folder="/etc/shadowsocksr"
@@ -620,7 +620,7 @@ JQ_install(){
 	if [[ ! -e ${jq_file} ]]; then
 		cd "${ssr_folder}"
 		if [[ ${bit} = "x86_64" ]]; then
-			mv "jq-linux64" "jq"
+			mv /root/jq-linux64 /usr/local/shadowsocksr/jq
 			#wget --no-check-certificate "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64" -O ${jq_file}
 		else
 			mv "jq-linux32" "jq"
