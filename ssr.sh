@@ -615,6 +615,24 @@ Download_SSR(){
 	[[ ! -e ${config_folder} ]] && echo -e "${Error} ShadowsocksR配置文件的文件夹 建立失败 !" && exit 1
 	echo -e "${Info} ShadowsocksR服务端 下载完成 !"
 }
+# 安装 JQ解析器
+JQ_install(){
+	if [[ ! -e ${jq_file} ]]; then
+		cd "${ssr_folder}"
+		if [[ ${bit} = "x86_64" ]]; then
+			mv "jq-linux64" "jq"
+			#wget --no-check-certificate "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64" -O ${jq_file}
+		else
+			mv "jq-linux32" "jq"
+			#wget --no-check-certificate "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux32" -O ${jq_file}
+		fi
+		[[ ! -e ${jq_file} ]] && echo -e "${Error} JQ解析器 重命名失败，请检查 !" && exit 1
+		chmod +x ${jq_file}
+		echo -e "${Info} JQ解析器 安装完成，继续..." 
+	else
+		echo -e "${Info} JQ解析器 已安装，继续..."
+	fi
+}
 Service_SSR(){
 	if [[ ${release} = "centos" ]]; then
 		if ! wget --no-check-certificate https://raw.githubusercontent.com/qbwza/qq/master/other/ssr_centos -O /etc/init.d/ssr; then
@@ -672,7 +690,7 @@ Install_SSR(){
 }
 Update_SSR(){
 	SSR_installation_status
-	echo -e "因破娃暂停更新ShadowsocksR服务端，所以此功能临时禁用。"
+	echo -e "没这功能别看了傻狗。"
 	#cd ${ssr_folder}
 	#git pull
 	#Restart_SSR
