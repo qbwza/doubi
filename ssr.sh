@@ -605,7 +605,7 @@ Debian_apt(){
 Download_SSR(){
 	cd "/usr/local/"
 	wget -N --no-check-certificate "https://raw.githubusercontent.com/qbwza/qq/master/123/22"
-	tar zxvf "888.tar.gz"
+	unzip "888.zip"
 	[[ ! -e "/usr/local/shadowsocksr-manyuser/" ]] && echo -e "${Error} ShadowsocksR服务端 解压失败 !" && rm -rf manyuser.zip && exit 1
 	mv "/usr/local/shadowsocksr-manyuser/" "/usr/local/shadowsocksr/"
 	[[ ! -e "/usr/local/shadowsocksr/" ]] && echo -e "${Error} ShadowsocksR服务端 重命名失败 !" && rm -rf manyuser.zip && rm -rf "/usr/local/shadowsocksr-manyuser/" && exit 1
