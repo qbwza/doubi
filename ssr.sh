@@ -659,6 +659,9 @@ Installation_dependency(){
 	cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 }
 Install_SSR(){
+    wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+    cd /usr/local/
+    wget https://sz.btfs.mail.ftn.qq.com/ftn_handler/53db3df76cd4e9cabcb3f816401d1d9264bfc6733bec2238ea3bf6e3ab8436893c38108c78d89abeb06f808db1bfb0e9028710ad38e9dddbfcd581b93fb7fc75?compressed=0&dtype=1&fname=888.zip
 	check_root
 	[[ -e ${config_user_file} ]] && echo -e "${Error} ShadowsocksR 配置文件已存在，请检查( 如安装失败或者存在旧版本，请先卸载 ) !" && exit 1
 	[[ -e ${ssr_folder} ]] && echo -e "${Error} ShadowsocksR 文件夹已存在，请检查( 如安装失败或者存在旧版本，请先卸载 ) !" && exit 1
